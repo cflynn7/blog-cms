@@ -1,6 +1,6 @@
-<?php include 'header.php' ?>
+<?php include 'header.php'; ?>
 
-<?php include 'nav.php' ?>
+<?php include 'nav.php'; ?>
 
 <main>
 
@@ -32,7 +32,7 @@
 
 
 
-<?php include 'footer.php' ?>
+<?php include 'footer.php'; ?>
 
 </body>
 </html>
