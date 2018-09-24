@@ -18,7 +18,7 @@
         $postTitles = getPostTitlesFromDatabase();
 
         foreach($postTitles as $postTitle) {
-            echo "<li style="color: blue; text-align: center; margin: 0;" ><a href='post.php?title=" . $postTitle . "'>" . $postTitle . "</a></li>";
+            echo "<li style='color: blue; text-align: center; margin: 0;'><a href='post.php?title=" . $postTitle . "'>" . $postTitle . "</a></li>";
         }
      ?>
      </ul>   
