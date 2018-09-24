@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-<html>
-        <head>
-                <link rel="stylesheet" type="text/css" href="style.css">
-        </head>
-<body>
-<header>
-    
-    <h1>Hello World!</h1>
+<?php include 'header.php'; ?>
 
-</header>
-
-<nav>
-        <a href="/index.php">Home</a> |
-        <a href="/post-submission.php">Submit a Post</a> |
-        
-</nav>
+<?php include 'nav.php'; ?>
 
 <main>
     <h1>My First Blog Post</h1>
@@ -31,7 +17,7 @@ Nunc iaculis auctor ante sed tincidunt. Maecenas eget mi libero. Curabitur sit a
 
 </main>
 
-<footer>Christine Flynn / Advanced Web Design / Fall 2018</footer>
+<?php include 'footer.php'; ?>
 
 
 
