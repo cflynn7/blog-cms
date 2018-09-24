@@ -1,31 +1,38 @@
-<!DOCTYPE html>
-<html>
-    <head>
-            <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-<body>
-<header>
-    
-    <h1>Hello World!</h1>
+<?php include 'header.php' ?>
 
-</header>
-
-<nav>
-        <a href="/index.html">Home</a> |
-        <a href="/post-submission.html">Submit a Post</a> |
-        
-</nav>
+<?php include 'nav.php' ?>
 
 <main>
-    <li><a href="post.html">First Blog Post</a></li>
+
+<?php 
+    function getPostTitlesFromDatabase() {
+        //TODO in Module 4
+        // get this data from a database instead of hardcoding it 
+        $postTitles = array("Blog Post 1", "Blog Post 2", "Blog Post 3");
+        return $postTitles;
+    }
+    ?>
+
+    <ul> 
+     <?php 
+        $postTitles = getPostTitlesFromDatabase();
+
+        foreach($postTitles as $postTitle) {
+            echo "<li style="color: blue; text-align: center; margin: 0;" ><a href='post.php?title=" . $postTitle . "'>" . $postTitle . "</a></li>";
+        }
+     ?>
+     </ul>   
+
+    
+
 </main>
 
-<footer>Christine Flynn / Advanced Web Design / Fall 2018</footer>
 
 
 
 
-<p> </p>
+
+<?php include 'footer.php' ?>
 
 </body>
 </html>
