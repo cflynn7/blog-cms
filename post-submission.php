@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html>
-        <head>
-                <link rel="stylesheet" type="text/css" href="style.css">
-        </head>
-<body>
-<header>
-    
-    <h1>Hello World!</h1>
-
-</header>
-
-<nav>
-        <a href="/index.php">Home</a> |
-        <a href="/post-submission.php">Submit a Post</a> |
-        
-</nav>
-
+<?php include 'header.php'; ?>
+<?php include 'nav.php'; ?>
 <main>
     <form>
      Title: <input type="text" name="title"><br>
@@ -26,7 +10,7 @@
     </form>
 </main>
 
-<footer>Christine Flynn / Advanced Web Design / Fall 2018</footer>
+<?php include 'footer.php'; ?>
 
 
 
