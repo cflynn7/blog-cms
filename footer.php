@@ -1,1 +1,1 @@
-<footer>Christine Flynn / Advanced Web Design / Fall 2018</footer>
+<footer>CHECKING TO SEE IF INCLUDE FOOTER IS WORKING </footer>
