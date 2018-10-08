@@ -1,67 +1,35 @@
+
 <?php include_once 'db_connect.php'; ?>
 
-<?php include 'header.php'; ?>
-
-<?php include 'nav.php'; ?>
-
-
-
-
-
-<main>
-
-
-<?php
-$conn;
-?>
-
-<?php 
+<!DOCTYPE html>
+<html lang="en">
     
-    function getPostDetailsFromDatabase() {
-     
-        // Get the post title
+<?php include 'head.php'; ?>
 
-       $postTitle = rawurldecode($_GET["title"]);
+<body>
 
-       // Get the post that matches the postTitle
-       include_once 'db_connect.php';
-       $sql = "SELECT * FROM posts WHERE title='" . $postTitle . "'";
-       $result = mysqli_query($conn, $sql);
 
-       // Get the first row from the result in an associative array
 
-        $postDetails = mysqli_fetch_assoc($result);
-        return $postDetails;
-    }
 
-?>
 
-    
-   
+    <h1 style="text-align:center; color:white;" id="hidden">I was hidden!</h1>
+        <button>Hello</button>
 
-    <ul> 
-     <?php 
-	function getPostTitlesFromDatabase() {
-	// Get all the post titles from the posts table
-        include_once 'db_connect.php'; 
-	$sql = "SELECT title FROM posts";
-	$result = mysqli_query($conn, $sql); 
-	
-	// Get each result row as an assoc array, then add title to $postTitles
-	$postTitles = array();
-	while($row = mysqli_fetch_assoc($result)){
-         array_push($postTitles, $row['title']);
-	}
-	return $postTitles; 
-}
-     ?>
-     </ul>   
+        <div id="sortable-blog-list">
+            <input class="search" placeholder="Search" />
+            <button class="sort" data-sort="title">Sort</button>
+     <ul class="list">
+        <?php
+            $postTitles = getPostTitlesFromDatabase();
+            foreach($postTitles as $postTitle) {
+                echo "<li><a href='post.php?title=" . $postTitle 
 
-    
+                    . "' class='title'>" . $postTitle . "</a></li>";
+            }
+        ?>
+    </ul>
+</div>
 
-</main>
-
-<?php include 'footer.php'; ?>
 
 </body>
 </html>

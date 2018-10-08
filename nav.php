@@ -1,3 +1,4 @@
+<?php include 'head.php'; ?>
 
 <nav>
         <a href="/index.php">Home</a> |
@@ -5,6 +6,6 @@
         
 </nav>
 
-<h1>BITE MY ASS!</h1>
+<h1>testing nav</h1>
 
 

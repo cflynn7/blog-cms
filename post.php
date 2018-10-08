@@ -1,20 +1,38 @@
 <?php include 'header.php'; ?>
 
+<?php include 'head.php'; ?>
+
 <?php include 'nav.php'; ?>
 
 <main>
-    <h1>My First Blog Post</h1>
 
-    <div>Author: Christine Flynn</div>
-    <div>September 23, 2018</div>
-    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a felis eget tortor volutpat tincidunt ut quis nunc. Integer condimentum libero odio, nec vestibulum justo fringilla id. Nulla ullamcorper accumsan nisi at volutpat. Ut imperdiet eros quis dictum sagittis. Suspendisse a ante at sapien ullamcorper accumsan at et diam. Nulla iaculis consectetur lorem, at viverra nibh. Ut rutrum enim non iaculis laoreet. Sed pharetra sodales facilisis. Vivamus pharetra semper imperdiet. Vestibulum quis eros massa.
+<?php
+    function getPostDetailsFromDatabase() {
+     
+        // Get the post title
+       $postTitle = rawurldecode($_GET["title"]);
 
-Duis in porttitor nisl. Maecenas turpis est, gravida ut sem vitae, sollicitudin iaculis magna. Morbi sed cursus odio. Curabitur quis maximus neque. Aliquam sed vestibulum nulla. Donec nisi mauris, dignissim id arcu non, rutrum varius tellus. Mauris vulputate porttitor libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent cursus facilisis lorem, tempus pharetra nunc facilisis non. Integer neque orci, mollis a velit vitae, accumsan feugiat turpis. Nam sed efficitur magna, nec finibus leo. Ut dapibus volutpat magna, sed dignissim nisl venenatis in.
+       // Get the post that matches the postTitle
+       include_once 'db_connect.php';
+       $sql = "SELECT * FROM posts WHERE title='" . $postTitle . "'";
+       $result = mysqli_query($conn, $sql);
 
-Nunc iaculis auctor ante sed tincidunt. Maecenas eget mi libero. Curabitur sit amet dolor sed nunc maximus commodo. Ut quis eleifend purus. Proin efficitur ultrices facilisis. Mauris eget congue arcu, non tincidunt magna. Suspendisse dolor libero, tempor sit amet maximus non, sagittis a leo. Vivamus ligula ligula, ultrices at ante nec, efficitur rutrum tellus. Praesent et erat faucibus lectus dictum posuere id ac ipsum. Sed purus orci, consequat nec leo id, dapibus fringilla risus. Etiam sodales feugiat luctus. Etiam quis sagittis risus.</div>
-    
+       // Get the first row from the result in an associative array
+        $postDetails = mysqli_fetch_assoc($result);
+        return $postDetails;
+    }
 
+?>
 
+<?php
+ // Post details contains all the data to generate a blog from 
+
+ $postDetails = getPostDetailsFromDatabase();
+ ?>
+ <h1> <?php echo $postDetails["title"]; ?> </h1>
+ <div> <?php echo $postDetails["author"]; ?> </div>
+ <div> <?php echo $postDetails["date"]; ?> </div>
+ <div> <?php echo $postDetails["content"]; ?> </div>
 </main>
 
 <?php include 'footer.php'; ?>
